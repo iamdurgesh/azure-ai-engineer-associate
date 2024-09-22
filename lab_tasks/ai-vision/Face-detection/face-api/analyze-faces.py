@@ -28,7 +28,7 @@ def main():
         print('1: Detect faces\nAny other key to quit')
         command = input('Enter a number:')
         if command == '1':
-            DetectFaces(os.path.join('images','people.jpg'))
+            DetectFaces(os.path.join('images','test_faces.jpg'))
 
     except Exception as ex:
         print(ex)
