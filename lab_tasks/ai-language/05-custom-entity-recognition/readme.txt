@@ -1,0 +1,1 @@
+In the result.txt, as the multilanguage feature was not active, the model failed to recognize entities in german correctly.
