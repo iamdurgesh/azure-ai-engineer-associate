@@ -1,35 +1,23 @@
 {
-    "name": "margies-index",
+    "name": "margies-knowledge-index",
     "fields": [
       {
         "name": "content",
         "type": "Edm.String",
         "facetable": false,
         "filterable": false,
-        "key": false,
         "retrievable": true,
         "searchable": true,
-        "sortable": false,
-        "analyzer": "standard.lucene",
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": false
       },
       {
         "name": "metadata_storage_content_type",
         "type": "Edm.String",
         "facetable": false,
         "filterable": false,
-        "key": false,
         "retrievable": false,
         "searchable": false,
-        "sortable": false,
-        "analyzer": null,
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": false
       },
       {
         "name": "metadata_storage_size",
@@ -37,12 +25,7 @@
         "facetable": false,
         "filterable": true,
         "retrievable": true,
-        "sortable": true,
-        "analyzer": null,
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": true
       },
       {
         "name": "metadata_storage_last_modified",
@@ -50,42 +33,25 @@
         "facetable": false,
         "filterable": true,
         "retrievable": true,
-        "sortable": true,
-        "analyzer": null,
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": true
       },
       {
         "name": "metadata_storage_content_md5",
         "type": "Edm.String",
         "facetable": false,
         "filterable": false,
-        "key": false,
         "retrievable": false,
         "searchable": false,
-        "sortable": false,
-        "analyzer": null,
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": false
       },
       {
         "name": "metadata_storage_name",
         "type": "Edm.String",
         "facetable": false,
         "filterable": true,
-        "key": false,
         "retrievable": true,
         "searchable": true,
-        "sortable": true,
-        "analyzer": "standard.lucene",
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": true
       },
       {
         "name": "metadata_storage_path",
@@ -95,87 +61,52 @@
         "key": true,
         "retrievable": true,
         "searchable": false,
-        "sortable": false,
-        "analyzer": null,
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": false
       },
       {
         "name": "metadata_storage_file_extension",
         "type": "Edm.String",
         "facetable": false,
         "filterable": false,
-        "key": false,
         "retrievable": false,
         "searchable": false,
-        "sortable": false,
-        "analyzer": null,
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": false
       },
       {
         "name": "metadata_content_type",
         "type": "Edm.String",
         "facetable": false,
         "filterable": false,
-        "key": false,
         "retrievable": false,
         "searchable": false,
-        "sortable": false,
-        "analyzer": null,
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": false
       },
       {
         "name": "metadata_language",
         "type": "Edm.String",
         "facetable": false,
         "filterable": false,
-        "key": false,
         "retrievable": false,
         "searchable": false,
-        "sortable": false,
-        "analyzer": null,
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": false
       },
       {
         "name": "metadata_author",
         "type": "Edm.String",
         "facetable": true,
         "filterable": true,
-        "key": false,
         "retrievable": true,
         "searchable": true,
-        "sortable": true,
-        "analyzer": "standard.lucene",
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": true
       },
       {
         "name": "metadata_title",
         "type": "Edm.String",
         "facetable": false,
         "filterable": false,
-        "key": false,
         "retrievable": false,
         "searchable": false,
-        "sortable": false,
-        "analyzer": null,
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": false
       },
       {
         "name": "metadata_creation_date",
@@ -183,12 +114,7 @@
         "facetable": false,
         "filterable": false,
         "retrievable": false,
-        "sortable": false,
-        "analyzer": null,
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": false
       },
       {
         "name": "locations",
@@ -196,35 +122,24 @@
         "facetable": false,
         "filterable": true,
         "retrievable": true,
-        "searchable": true,
-        "analyzer": "standard.lucene",
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "searchable": true
+      },
+      {
+        "name": "keyphrases",
+        "type": "Collection(Edm.String)",
+        "facetable": false,
+        "filterable": false,
+        "retrievable": true,
+        "searchable": true
       },
       {
         "name": "language",
         "type": "Edm.String",
         "facetable": false,
         "filterable": true,
-        "key": false,
         "retrievable": true,
         "searchable": true,
         "sortable": false,
-        "analyzer": "standard.lucene",
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
-      },
-      {
-        "name": "keyphrases",
-        "type": "Collection(Edm.String)",
-        "facetable": false,
-        "filterable": true,
-        "retrievable": true,
-        "searchable": true,
         "analyzer": "standard.lucene",
         "indexAnalyzer": null,
         "searchAnalyzer": null,
@@ -236,15 +151,9 @@
         "type": "Edm.String",
         "facetable": false,
         "filterable": false,
-        "key": false,
         "retrievable": true,
         "searchable": true,
-        "sortable": false,
-        "analyzer": "standard.lucene",
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "sortable": false
       },
       {
         "name": "text",
@@ -252,12 +161,7 @@
         "facetable": false,
         "filterable": false,
         "retrievable": true,
-        "searchable": true,
-        "analyzer": "standard.lucene",
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "searchable": true
       },
       {
         "name": "layoutText",
@@ -265,12 +169,7 @@
         "facetable": false,
         "filterable": false,
         "retrievable": true,
-        "searchable": true,
-        "analyzer": "standard.lucene",
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "searchable": true
       },
       {
         "name": "imageTags",
@@ -278,12 +177,7 @@
         "facetable": false,
         "filterable": false,
         "retrievable": true,
-        "searchable": true,
-        "analyzer": "standard.lucene",
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "searchable": true
       },
       {
         "name": "imageCaption",
@@ -291,12 +185,7 @@
         "facetable": false,
         "filterable": false,
         "retrievable": true,
-        "searchable": true,
-        "analyzer": "standard.lucene",
-        "indexAnalyzer": null,
-        "searchAnalyzer": null,
-        "synonymMaps": [],
-        "fields": []
+        "searchable": true
       },
       {
         "name": "sentiment",

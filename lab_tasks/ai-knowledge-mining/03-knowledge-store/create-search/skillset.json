@@ -1,5 +1,5 @@
 {
-    "name": "margies-skillset",
+    "name": "margies-knowledge-skillset",
     "description": "Skillset for document extraction",
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
@@ -8,7 +8,30 @@
       },
     "skills": [
       {
-        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.V3.SentimentSkill",
+        "name": "get-sentiment",
+        "description": "Evaluate sentiment",
+        "context": "/document",
+        "defaultLanguageCode": "en",
+        "inputs": [
+          {
+            "name": "text",
+            "source": "/document/merged_content"
+          },
+          {
+            "name": "languageCode",
+            "source": "/document/language"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "sentiment",
+            "targetName": "sentimentLabel"
+          }
+        ]
+      },
+      {
+        "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkillV2",
         "name": "#1",
         "description": null,
         "context": "/document/merged_content",
@@ -23,7 +46,6 @@
         ],
         "defaultLanguageCode": "en",
         "minimumPrecision": null,
-        "includeTypelessEntities": null,
         "inputs": [
           {
             "name": "text",
@@ -38,10 +60,6 @@
           {
             "name": "locations",
             "targetName": "locations"
-          },
-          {
-            "name": "entities",
-            "targetName": "entities"
           }
         ]
       },
@@ -170,29 +188,121 @@
         ]
       },
       {
-        "@odata.type": "#Microsoft.Skills.Text.V3.SentimentSkill",
-        "name": "get-sentiment",
-        "description": "New skill to evaluate sentiment",
+        "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+        "name": "define-projection",
+        "description": "Prepare projection fields",
         "context": "/document",
-        "defaultLanguageCode": "en",
         "inputs": [
           {
-            "name": "text",
-            "source": "/document/merged_content"
+            "name": "file_id",
+            "source": "/document/metadata_storage_path"
           },
           {
-            "name": "languageCode",
+            "name": "file_name",
+            "source": "/document/metadata_storage_name"
+          },
+          {
+            "name": "url",
+            "source": "/document/url"
+          },
+          {
+            "name": "language",
             "source": "/document/language"
-          }
-        ],
-        "outputs": [
+          },
           {
             "name": "sentiment",
-            "targetName": "sentimentLabel"
+            "source": "/document/sentimentLabel"
+          },
+          {
+            "name": "key_phrases",
+            "source": null,
+            "sourceContext": "/document/merged_content/keyphrases/*",
+            "inputs": [
+              {
+                  "name": "phrase",
+                  "source": "/document/merged_content/keyphrases/*"
+              }
+          ]
+          },
+          {
+            "name": "locations",
+            "source": null,
+            "sourceContext": "/document/merged_content/locations/*",
+            "inputs":[
+              {
+                "name": "location", "source": "/document/merged_content/locations/*"
+              }
+            ]
+          },
+          {
+            "name": "image_tags",
+            "source": null,
+            "sourceContext": "/document/normalized_images/*/imageTags/*",
+            "inputs":[
+              {
+                "name": "tag", "source": "/document/normalized_images/*/imageTags/*/name"
+              }
+            ]
           }
-        ]
-      }
+          ],
+          "outputs": [
+            {
+              "name": "output",
+              "targetName": "knowledge_projection"
+            }
+          ]
+        }
     ],
-    "knowledgeStore": null,
+    "knowledgeStore": { 
+      "storageConnectionString": "YOUR_CONNECTION_STRING", 
+      "projections": [
+          {
+              "objects": [
+                  {
+                      "storageContainer": "margies-knowledge",
+                      "source": "/document/knowledge_projection"
+                  }
+              ],
+              "tables": [],
+              "files": []
+          },
+          {
+              "objects": [],
+              "tables": [],
+              "files": [
+                  {
+                      "storageContainer": "margies-images",
+                      "source": "/document/normalized_images/*"
+                  }
+              ]
+          },
+          {
+            "objects": [],
+            "tables": [  
+                {
+                    "tableName": "KeyPhrases",
+                    "generatedKeyName": "keyphrase_id",
+                    "source": "/document/knowledge_projection/key_phrases/*"
+                },
+                {
+                    "tableName": "Locations",
+                    "generatedKeyName": "location_id",
+                    "source": "/document/knowledge_projection/locations/*"
+                }, 
+                {
+                    "tableName": "ImageTags",
+                    "generatedKeyName": "tag_id",
+                    "source": "/document/knowledge_projection/image_tags/*"
+                },
+                {
+                    "tableName": "docs",
+                    "generatedKeyName": "document_id", 
+                    "source": "/document/knowledge_projection" 
+                    }
+            ],
+            "files": []
+        }
+      ]     
+  } ,
     "encryptionKey": null
   }

@@ -1,9 +1,9 @@
 {
-    "name": "margies-indexer",
+    "name": "margies-knowledge-indexer",
     "description": "Indexer for Margies Travel",
-    "dataSourceName": "margies-data",
-    "skillsetName": "margies-skillset",
-    "targetIndexName": "margies-index",
+    "dataSourceName": "margies-knowledge-data",
+    "skillsetName": "margies-knowledge-skillset",
+    "targetIndexName": "margies-knowledge-index",
     "parameters": {
       "maxFailedItems": -1,
       "maxFailedItemsPerBatch": -1,
