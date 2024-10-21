@@ -1,7 +1,7 @@
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.formrecognizer import DocumentAnalysisClient
-from dotenv import load_dotenv
-import os
+# from azure.core.credentials import AzureKeyCredential
+# from azure.ai.formrecognizer import DocumentAnalysisClient
+# from dotenv import load_dotenv
+# import os
 
 # Get configuration settings 
 load_dotenv()
